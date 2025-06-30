@@ -1,12 +1,16 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/tentang', [HomeController::class, 'tentang'])->name('home.tentang');
+Route::get('/sejarah', [HomeController::class, 'sejarah'])->name('home.sejarah');
+Route::get('/pengantar-ktp', [HomeController::class, 'pengantarKTP'])->name('home.pengantar-ktp');
+Route::get('/pengantar-nikah', [HomeController::class, 'pengantarNikah'])->name('home.pengantar-nikah');
+Route::post('/cek-nik', [HomeController::class, 'cekNIK']);
+Route::post('/upload-pengajuan/{jenis}', [HomeController::class, 'uploadPengajuan']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -17,4 +21,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
