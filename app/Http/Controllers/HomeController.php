@@ -24,7 +24,7 @@ class HomeController extends Controller
 
     public function tentang()
     {
-        return view('landing-page.profile.tentang', [
+        return view('home.tentang', [
             'title' => 'Tentang Desa Penyarang',
             'page_of' => 'Tentang',
         ]);
@@ -32,7 +32,7 @@ class HomeController extends Controller
 
     public function sejarah()
     {
-        return view('landing-page.profile.sejarah', [
+        return view('home.sejarah', [
             'title' => 'Sejarah Desa Penyarang',
             'page_of' => 'Sejarah',
         ]);
@@ -41,7 +41,7 @@ class HomeController extends Controller
 
     public function pengantarKTP()
     {
-        return view('landing-page.profile.pengantar_ktp', [
+        return view('home.pengantar_ktp', [
             'title' => 'Pengajuan Surat Pengantar KTP',
             'page_of' => 'Surat Pengantar KTP',
         ]);
@@ -87,13 +87,5 @@ class HomeController extends Controller
         }
 
         return response()->json(['status' => 'failed', 'message' => 'Anda sudah melakukan pengajuan sebelumnya']);
-    }
-
-    public function statistik()
-    {
-        return view('landing-page.profile.statistik', [
-            'title' => 'Statistik Desa Penyarang',
-            'page_of' => 'Statistik',
-        ]);
     }
 }
