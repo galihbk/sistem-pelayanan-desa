@@ -363,11 +363,6 @@
     <script src="{{ asset('assets/landing-page/lib/easing/easing.min.js') }}"></script>
     <script src="{{ asset('assets/landing-page/lib/owlcarousel/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('assets/landing-page/js/main.js') }}"></script>
-    <script>
-        $('.btn-statistik').click(function() {
-            $('.card-statistik').toggleClass('show');
-        });
-    </script>
 </body>
 
 </html>

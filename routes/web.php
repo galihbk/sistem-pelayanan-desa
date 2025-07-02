@@ -9,8 +9,8 @@ Route::get('/tentang', [HomeController::class, 'tentang'])->name('home.tentang')
 Route::get('/sejarah', [HomeController::class, 'sejarah'])->name('home.sejarah');
 Route::get('/pengantar-ktp', [HomeController::class, 'pengantarKTP'])->name('home.pengantar-ktp');
 Route::get('/pengantar-nikah', [HomeController::class, 'pengantarNikah'])->name('home.pengantar-nikah');
-Route::post('/cek-nik', [HomeController::class, 'cekNIK']);
-Route::post('/upload-pengajuan/{jenis}', [HomeController::class, 'uploadPengajuan']);
+Route::post('/cek-nik', [HomeController::class, 'cekNIK'])->name('home.cek-nik');
+Route::post('/upload-pengajuan/{jenis}', [HomeController::class, 'uploadPengajuan'])->name('home.upload-pengajuan');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
