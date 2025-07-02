@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/tentang', [HomeController::class, 'tentang'])->name('home.tentang');
@@ -11,6 +12,9 @@ Route::get('/pengantar-ktp', [HomeController::class, 'pengantarKTP'])->name('hom
 Route::get('/pengantar-nikah', [HomeController::class, 'pengantarNikah'])->name('home.pengantar-nikah');
 Route::post('/cek-nik', [HomeController::class, 'cekNIK'])->name('home.cek-nik');
 Route::post('/upload-pengajuan/{jenis}', [HomeController::class, 'uploadPengajuan'])->name('home.upload-pengajuan');
+
+Route::get('admin-panel', [AuthController::class, 'index'])->name('admin.login');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
