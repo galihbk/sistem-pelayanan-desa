@@ -36,7 +36,7 @@
                                         <h3 class="">LOGIN</h3>
                                     </div>
                                     <div class="login-separater text-center mb-4">
-                                        <span>USERNAME & PASSWORD</span>
+                                        <span>EMAIL & PASSWORD</span>
                                         <hr />
                                     </div>
                                     <div class="form-body">
@@ -53,7 +53,7 @@
                                                 </ul>
                                             </div>
                                         @endif
-
+                                        <x-auth-session-status class="mb-4" :status="session('status')" />
                                         <form method="POST" action="{{ route('login') }}" class="row g-3"
                                             id="form-login">
                                             @csrf

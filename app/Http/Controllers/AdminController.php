@@ -12,26 +12,17 @@ class AdminController extends Controller
 {
     public function index()
     {
-        if (!Session::has('username')) {
-            return redirect('admin-panel');
-        }
         return view('admin.dashboard', ['title' => 'Dashboard']);
     }
 
     public function keluarga()
     {
-        if (!Session::has('username')) {
-            return redirect('admin-panel');
-        }
         $kk = DB::table('kartu_keluarga')->count();
         return view('admin.keluarga', ['title' => 'Data Kartu Keluarga', 'kk' => $kk]);
     }
 
     public function tambahData($jenis = '')
     {
-        if (!Session::has('username')) {
-            return redirect('admin-panel');
-        }
         $kk = DB::table('kartu_keluarga')->count();
         $view = $jenis === '1' ? 'admin.tambah-data-keluarga' : 'admin.tambah-data-penduduk';
         return view($view, ['title' => 'Tambah Data Kartu Keluarga', 'kk' => $kk]);
@@ -39,9 +30,6 @@ class AdminController extends Controller
 
     public function prosesAdd(Request $request, $jenis = '')
     {
-        if (!Session::has('username')) {
-            return redirect('admin-panel');
-        }
 
         if ($jenis === 'kk') {
             $validator = Validator::make($request->all(), [
@@ -101,22 +89,6 @@ class AdminController extends Controller
         return view('admin.table.table_penduduk', ['penduduk' => $penduduk]);
     }
 
-    public function informasi()
-    {
-        if (!Session::has('username')) {
-            return redirect('admin-panel');
-        }
-        return view('admin.informasi', ['title' => 'Informasi dan Berita']);
-    }
-
-    public function getInformasi()
-    {
-        if (!Session::has('username')) {
-            return redirect('admin-panel');
-        }
-        $informasi = DB::table('informasi')->where('status', 0)->get();
-        return view('admin.table.table_informasi', ['informasi' => $informasi]);
-    }
 
     public function pengantarKTP()
     {

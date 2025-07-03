@@ -70,27 +70,11 @@
                         <div class="menu-title">Kependudukan</div>
                     </a>
                     <ul>
-                        <li> <a href="{{ route('kependudukan.keluarga') }}"><i
-                                    class="bx bx-right-arrow-alt"></i>Keluarga</a>
+                        <li> <a href="{{ route('keluarga') }}"><i class="bx bx-right-arrow-alt"></i>Keluarga</a>
                         </li>
-                        <li> <a href="{{ route('kependudukan.penduduk') }}"><i
-                                    class="bx bx-right-arrow-alt"></i>Penduduk</a>
+                        <li> <a href="{{ route('penduduk') }}"><i class="bx bx-right-arrow-alt"></i>Penduduk</a>
                         </li>
                     </ul>
-                </li>
-                <li>
-                    <a href="{{ route('struktural') }}">
-                        <div class="parent-icon"><i class='bx bx-list-ul'></i>
-                        </div>
-                        <div class="menu-title">Struktural</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('informasi-berita') }}">
-                        <div class="parent-icon"><i class='bx bx-news'></i>
-                        </div>
-                        <div class="menu-title">Informasi</div>
-                    </a>
                 </li>
                 <li>
                     <a href="javascript:;" class="has-arrow">
@@ -101,9 +85,6 @@
                     <ul>
                         <li> <a href="{{ route('pengajuan.pengantar-ktp') }}"><i
                                     class="bx bx-right-arrow-alt"></i>Surat Pengantar KTP</a>
-                        </li>
-                        <li> <a href="{{ route('kependudukan.penduduk') }}"><i
-                                    class="bx bx-right-arrow-alt"></i>Penduduk</a>
                         </li>
                     </ul>
                 </li>
