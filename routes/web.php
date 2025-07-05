@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/proses-add/{jenis}', [AdminController::class, 'prosesAdd'])->name('proses-add');
     Route::get('/get-kk', [AdminController::class, 'getKK'])->name('get-kk');
     Route::get('/get-penduduk', [AdminController::class, 'getPenduduk'])->name('get-penduduk');
-    Route::get('/pengantar-ktp', [AdminController::class, 'pengantarKTP'])->name('pengajuan.pengantar-ktp');
+    Route::get('/pengantar-ktp', [AdminController::class, 'pengantarKTP'])->name('home.pengantar-ktp');
     Route::get('/pengajuan/{jenis}', [AdminController::class, 'getPengajuan'])->name('pengajuan');
 });
 
