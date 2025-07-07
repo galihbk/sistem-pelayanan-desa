@@ -22,42 +22,58 @@
                 <div class="col-lg-7 wow fadeInRight" data-wow-delay="0.4s"
                     style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInRight;">
                     <div class="section-title text-start mb-5">
-                        <h4 class="sub-title pe-3 mb-0">Tentang Desa Penyarang</h4>
-                        <h1 class="display-3 mb-4">Desa Penyarang</h1>
-                        <p class="mb-4">Desa Penyarang terletak di Kecamatan Sidareja, Kabupaten Cilacap, Jawa Tengah.
-                            Desa ini memiliki 4 Dusun diantaranya yaitu ada Dusun Cisagu, Dusun Penyarang, Dusun
-                            Karangsalam, Dusung Karangbolang
+                        <h4 class="sub-title pe-3 mb-0">Tentang Desa Penggarutan</h4>
+                        <h1 class="display-3 mb-4">Desa Penggarutan</h1>
+                        <p class="mb-4">
                             Desa ini memiliki sejarah dan potensi yang menarik, baik dari segi geologi, ekonomi, maupun
                             pariwisata.
                             <br><br>
-                            Dari segi geologi, Desa Penyarang dan sekitarnya memiliki morfologi perbukitan yang terdiri
+                            Dari segi geologi, Desa Penggarutan dan sekitarnya memiliki morfologi perbukitan yang terdiri
                             dari singkapan batuan vulkanik dan sedimen, mencerminkan sejarah geologi yang kaya. Daerah
                             ini terbagi menjadi beberapa satuan geomorfologi, seperti Satuan Punggungan Aliran
-                            Piroklastik Penyarang dan Satuan Lembah Antiklin Rungkang​.
+                            Piroklastik Penggarutan.​.
                             <br>
-                            Desa penyarang mempunyai Visi dan Misi diantaranya:
+                            Desa penggarutan mempunyai Visi dan Misi diantaranya:
                         </p>
                         <div class="d-flex">
                             <div class="mb-4">
                                 <p class="mb-4">Visi</p>
                                 <div class="mb-4">
-                                    <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Refresing to get
-                                        such a personal touch.</p>
-                                    <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Duis aute irure
-                                        dolor in reprehenderit in voluptate.</p>
-                                    <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Velit esse
-                                        cillum dolore eu fugiat nulla pariatur.</p>
+                                    <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> MEWUJUDKAN TATA
+                                        KELOLA YANG TRANSPARAN, AKUNTABEL, JUJUR DALAM RANGKA MENINGKATKAN KERUKUNAN,
+                                        KEADILAN SERTA KESEJAHTERAAN MASYARAKAT YANG BERBUDI LUHUR BAIK LAHIR MAUPUN BATIN
+                                    </p>
                                 </div>
                             </div>
                             <div class="mb-4">
                                 <p class="mb-4">Misi</p>
                                 <div class="mb-4">
-                                    <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Refresing to get
-                                        such a personal touch.</p>
-                                    <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Duis aute irure
-                                        dolor in reprehenderit in voluptate.</p>
-                                    <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Velit esse
-                                        cillum dolore eu fugiat nulla pariatur.</p>
+                                    <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Bertakwa kepada
+                                        Tuhan Yang Maha Esa.</p>
+                                    <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Menyelenggarakan
+                                        tata kelola pemerintahan yang transparan jujur adil, bersih dari unsur KKN dan
+                                        kepentingan kelompok tertentu.</p>
+                                    <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Memberikan
+                                        pelayanan kepada masyarakat sebagai prioritas prima tanpa membedakan suku, ras,
+                                        agama dan perbedaan sosial lainnya.</p>
+                                    <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Memberikan
+                                        perlindungan nyata kepada masyarakat dalam hal keamanan, kenyamanan, ketertiban,
+                                        kebinekaan hak sebagai masyarakat.</p>
+                                    <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Melaksanakan
+                                        pembangunan bersama lembaga desa dan masyarakat baik pembangunan fisik, mental
+                                        maupun spiritual yang tepat sasaran, tepat guna, tepat anggaran, sesuai dengan
+                                        kepentingan, keinginan dan kehendak masyarakat dengan tetap mempertimbangkan
+                                        keberadaan kultur dan karakteristik tiap-tiap wilayah.</p>
+                                    <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Meningkatkan
+                                        kegiatan dan peran aktif pemuda/pemudi dan berupaya meningkatkan kualitas kegiatan
+                                        olahraga.</p>
+                                    <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Menciptakan
+                                        iklim yang sejuk dalam masyarakat dan aparatur pemerintah untuk menghindari
+                                        prasangka serta praduga dalam pelaksanaan semua aspek kegiatan pemerintah desa dan
+                                        pembangunan.</p>
+                                    <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Pemerataan
+                                        pembangunan DAD disemua wilayah sehingga betul-betul dapat dirasakan manfaatnya oleh
+                                        masyarakat.</p>
                                 </div>
                             </div>
                         </div>

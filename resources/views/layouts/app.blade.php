@@ -83,8 +83,8 @@
                         <div class="menu-title">Pengajuan</div>
                     </a>
                     <ul>
-                        <li> <a href="{{ route('pengajuan.pengantar-ktp') }}"><i
-                                    class="bx bx-right-arrow-alt"></i>Surat Pengantar KTP</a>
+                        <li> <a href="{{ route('home.pengantar-ktp') }}"><i class="bx bx-right-arrow-alt"></i>Surat
+                                Pengantar KTP</a>
                         </li>
                     </ul>
                 </li>

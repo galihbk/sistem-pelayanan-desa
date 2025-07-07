@@ -13,6 +13,7 @@ Route::get('/pengantar-ktp', [HomeController::class, 'pengantarKTP'])->name('hom
 Route::get('/pengantar-nikah', [HomeController::class, 'pengantarNikah'])->name('home.pengantar-nikah');
 Route::post('/cek-nik', [HomeController::class, 'cekNIK'])->name('home.cek-nik');
 Route::post('/upload-pengajuan/{jenis}', [HomeController::class, 'uploadPengajuan'])->name('home.upload-pengajuan');
+Route::get('/layanan', [HomeController::class, 'layanan'])->name('home.layanan');
 
 Route::middleware('guest')->group(function () {
     Route::get('admin-panel', [AuthController::class, 'index'])->name('admin.login');
@@ -31,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/get-penduduk', [AdminController::class, 'getPenduduk'])->name('get-penduduk');
     Route::get('/pengantar-ktp', [AdminController::class, 'pengantarKTP'])->name('home.pengantar-ktp');
     Route::get('/pengajuan/{jenis}', [AdminController::class, 'getPengajuan'])->name('pengajuan');
+    Route::get('/export_excell/kk', [AdminController::class, 'exportExcellKK'])->name('export_excell/kk');
 });
 
 require __DIR__ . '/auth.php';

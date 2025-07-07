@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DESA PENYARANG | Kec. Sidareja - Kab. Cilacap</title>
+    <title>DESA PENGGARUTAN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords"
         content="desa penyarang, website desa penyarang, informasi desa penyarang, layanan desa online, pemerintahan desa, berita desa, wisata desa penyarang, layanan masyarakat, agenda desa, potensi ekonomi desa">
@@ -44,16 +44,9 @@
                 <div class="navbar-nav ms-auto py-0">
                     <a href="{{ route('home') }}" class="nav-item nav-link active">Beranda</a>
                     <a href="{{ route('home.tentang') }}" class="nav-item nav-link">Tentang</a>
-                    <a href="{{ route('home.sejarah') }}" class="nav-item nav-link">Sejarah</a>
-                    <div class=" nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Layanan</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="{{ route('home.pengantar-ktp') }}" class="dropdown-item">Surat
-                                Pengantar KTP</a>
-                            <a href="{{ route('home.pengantar-nikah') }}" class="dropdown-item">Surat
-                                Pengantar Nikah</a>
-                        </div>
-                    </div>
+                    {{-- <a href="{{ route('home.sejarah') }}" class="nav-item nav-link">Sejarah</a> --}}
+                    <a href="{{ route('home.layanan') }}" class="nav-item nav-link"
+                        data-bs-toggle="dropdown">Layanan</a>
                 </div>
             </div>
         </nav>
@@ -66,10 +59,7 @@
                         <h5 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Selamat Datang
                             di Website Resmi</h5>
                         <!-- <h3 class="display-1 text-capitalize text-white mb-4">Website Resmi</h3> -->
-                        <h1 class="display-1 text-capitalize text-white mb-4">Desa Penyarang</h1>
-                        <p class="mb-5 fs-5">Kecamatan Sidareja, Kabupaten Cilacap, Jawa
-                            Tengah.
-                        </p>
+                        <h1 class="display-1 text-capitalize text-white mb-4">Desa Penggarutan</h1>
                     </div>
                 </div>
             </div>
@@ -86,16 +76,16 @@
                 </div>
                 <div class="col-lg-7 wow fadeInRight" data-wow-delay="0.4s">
                     <div class="section-title text-start mb-5">
-                        <h4 class="sub-title pe-3 mb-3">TentangDesa Penyarang</h4>
-                        <p class="mb-4">Desa Penyarang terletak di Kecamatan Sidareja, Kabupaten Cilacap, Jawa
-                            Tengah.
+                        <h4 class="sub-title pe-3 mb-3">Tentang Desa Penggarutan</h4>
+                        <p class="mb-4">
                             Desa ini memiliki sejarah dan potensi yang menarik, baik dari segi geologi, ekonomi, maupun
                             pariwisata.
                             <br><br>
-                            Dari segi geologi, Desa Penyarang dan sekitarnya memiliki morfologi perbukitan yang terdiri
+                            Dari segi geologi, Desa Penggarutan dan sekitarnya memiliki morfologi perbukitan yang
+                            terdiri
                             dari singkapan batuan vulkanik dan sedimen, mencerminkan sejarah geologi yang kaya. Daerah
                             ini terbagi menjadi beberapa satuan geomorfologi, seperti Satuan Punggungan Aliran
-                            Piroklastik Penyarang dan Satuan Lembah Antiklin Rungkang​.
+                            Piroklastik Penggarutan.​.
                         </p>
                         <a href="{{ route('home.tentang') }}"
                             class="btn btn-primary rounded-pill text-white py-3 px-5">Lihat Selengkapnya</a>
@@ -108,7 +98,7 @@
         <div class="container py-5">
             <div class="section-title mb-5 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="sub-style">
-                    <h4 class="sub-title px-3 mb-0">Penduduk Desa Penyarang</h4>
+                    <h4 class="sub-title px-3 mb-0">Penduduk Desa Penggarutan</h4>
                 </div>
             </div>
             <div class="row g-4 justify-content-center">
@@ -187,13 +177,14 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-7 wow fadeInRight" data-wow-delay="0.4s">
                     <div class="section-title text-start mb-5">
-                        <h4 class="sub-title pe-3 mb-0">Sambutan Kepala Desa Penyarang</h4>
+                        <h4 class="sub-title pe-3 mb-0">Sambutan Kepala Desa Penggarutan</h4>
                         <!-- <h1 class="display-3 mb-4">Desa Penyarang</h1> -->
                         <p class="mb-4">
                             Assalamu’alaikum warahmatullahi wabarakatuh,
                             <br>
                             <br>
-                            Yang saya hormati, para tokoh masyarakat, perangkat desa, serta seluruh warga Desa Penyarang
+                            Yang saya hormati, para tokoh masyarakat, perangkat desa, serta seluruh warga Desa
+                            Penggarutan
                             yang saya cintai.
                             <br>
                             <br>
@@ -202,20 +193,20 @@
                             sehat wal’afiat.
                             <br>
                             <br>
-                            Sebagai Kepala Desa Penyarang, saya ingin menyampaikan terima kasih atas kepsercayaan dan
+                            Sebagai Kepala Desa Penggarutan, saya ingin menyampaikan terima kasih atas kepsercayaan dan
                             dukungan dari seluruh masyarakat dalam membangun desa kita tercinta. Dengan semangat
                             kebersamaan dan gotong royong, mari kita terus bekerja untuk kemajuan desa, meningkatkan
                             kesejahteraan masyarakat, serta menjaga nilai-nilai budaya dan tradisi yang telah diwariskan
                             oleh leluhur kita.
                             <br>
                             <br>
-                            Saya berharap Desa Penyarang dapat terus berkembang, menjadi desa yang mandiri, sejahtera,
+                            Saya berharap Desa Penggarutan dapat terus berkembang, menjadi desa yang mandiri, sejahtera,
                             dan berdaya saing. Dengan adanya dukungan dari seluruh pihak, insyaAllah kita dapat
                             mewujudkan desa yang lebih baik di masa depan.
                             <br>
                             <br>
                             Akhir kata, saya mengajak seluruh masyarakat untuk tetap menjaga persatuan dan bekerja sama
-                            dalam membangun Desa Penyarang agar lebih maju dan harmonis.
+                            dalam membangun Desa Penggarutan agar lebih maju dan harmonis.
                             <br>
                             <br>
                             Wassalamu’alaikum warahmatullahi wabarakatuh.
@@ -224,7 +215,7 @@
                             [RASIMIN]
                             <br>
                             <br>
-                            Kepala Desa Penyarang
+                            Kepala Desa Penggarutan
 
                         </p>
                     </div>
@@ -247,8 +238,8 @@
                 <div class="sub-style">
                     <h4 class="sub-title px-3 mb-0">Potensi</h4>
                 </div>
-                <h1 class="display-3 mb-4">Potensi Desa Penyarang</h1>
-                <p class="mb-0">Desa Penyarang memiliki beberapa potensi yang sangat besar dibeberapa bidang
+                <h1 class="display-3 mb-4">Potensi Desa Penggarutan</h1>
+                <p class="mb-0">Desa Penggarutan memiliki beberapa potensi yang sangat besar dibeberapa bidang
                     diantaranya
                 </p>
             </div>
@@ -318,8 +309,9 @@
                 <div class="sub-style">
                     <h4 class="sub-title px-3 mb-0">Aparatur Desa</h4>
                 </div>
-                <h1 class="display-3 mb-4">Aparatur Desa Penyarang</h1>
-                <p class="mb-0">Desa Penyarang memiliki aparatur desa yang terdiri dari berbagai elemen penting yang
+                <h1 class="display-3 mb-4">Aparatur Desa Penggarutan</h1>
+                <p class="mb-0">Desa Penggarutan memiliki aparatur desa yang terdiri dari berbagai elemen penting
+                    yang
                     bertanggung jawab dalam menjalankan fungsi administratif dan pelayanan kepada masyarakat</p>
             </div>
             <div class="row g-4 justify-content-center">
@@ -346,7 +338,7 @@
             <div class="row g-4 align-items-center">
                 <div class="col-md-6 text-center text-md-start mb-md-0">
                     <span class="text-white"><a href=""><i
-                                class="fas fa-copyright text-light me-2"></i>penyarang.desa.id</a>, All right
+                                class="fas fa-copyright text-light me-2"></i>penggarutan.desa.id</a>, All right
                         reserved.</span>
                 </div>
                 <div class="col-md-6 text-center text-md-end text-white">

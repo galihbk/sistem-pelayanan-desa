@@ -56,16 +56,9 @@
                 <div class="navbar-nav ms-auto py-0">
                     <a href="{{ route('home') }}" class="nav-item nav-link active">Beranda</a>
                     <a href="{{ route('home.tentang') }}" class="nav-item nav-link">Tentang</a>
-                    <a href="{{ route('home.sejarah') }}" class="nav-item nav-link">Sejarah</a>
-                    <div class=" nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Layanan</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="{{ route('home.pengantar-ktp') }}" class="dropdown-item">Surat
-                                Pengantar KTP</a>
-                            <a href="{{ route('home.pengantar-nikah') }}" class="dropdown-item">Surat
-                                Pengantar Nikah</a>
-                        </div>
-                    </div>
+                    {{-- <a href="{{ route('home.sejarah') }}" class="nav-item nav-link">Sejarah</a> --}}
+                    <a href="{{ route('home.layanan') }}" class="nav-item nav-link"
+                        data-bs-toggle="dropdown">Layanan</a>
                 </div>
             </div>
         </nav>
