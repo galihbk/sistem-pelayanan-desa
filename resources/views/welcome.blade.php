@@ -5,10 +5,8 @@
     <meta charset="utf-8">
     <title>DESA PENGGARUTAN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords"
-        content="desa penyarang, website desa penyarang, informasi desa penyarang, layanan desa online, pemerintahan desa, berita desa, wisata desa penyarang, layanan masyarakat, agenda desa, potensi ekonomi desa">
-    <meta name="description" content="Website resmi Desa Penyarang menghadirkan informasi terkini...">
-    <link rel="icon" href="{{ asset('assets/images/logo-desa-penggarutan.jpeg') }}" type="image/png">
+    <meta name="keywords" <link rel="icon" href="{{ asset('assets/images/logo-desa-penggarutan.jpeg') }}"
+        type="image/png">
 
     {{-- Fonts & Icons --}}
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">

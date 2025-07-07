@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="{{ asset('assets/images/logo-desa-penyarang.png') }}" type="image/png" />
+    <link rel="icon" href="{{ asset('assets/images/logo-desa-penggarutan.jpeg') }}" type="image/png" />
     <link rel="stylesheet" href="{{ asset('assets/plugins/notifications/css/lobibox.min.css') }}" />
     <link href="{{ asset('assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
@@ -29,8 +29,8 @@
                             <div class="card-body">
                                 <div class="border p-4 rounded">
                                     <div class="mb-4 text-center">
-                                        <img src="{{ asset('assets/images/logo-desa-penyarang.png') }}" width="180"
-                                            alt="" />
+                                        <img src="{{ asset('assets/images/logo-desa-penggarutan.jpeg') }}"
+                                            width="180" alt="" />
                                     </div>
                                     <div class="text-center">
                                         <h3 class="">LOGIN</h3>

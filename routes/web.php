@@ -25,10 +25,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
     Route::get('/keluarga', [AdminController::class, 'keluarga'])->name('keluarga');
+    Route::post('/kk/store', [AdminController::class, 'storeKK'])->name('kk.store');
+    Route::get('/kk/data', [AdminController::class, 'getDataKK'])->name('kk.data');
     Route::get('/penduduk', [AdminController::class, 'penduduk'])->name('penduduk');
-    Route::get('/tambah-data/{jenis}', [AdminController::class, 'tambahData'])->name('tambah-data');
-    Route::post('/proses-add/{jenis}', [AdminController::class, 'prosesAdd'])->name('proses-add');
-    Route::get('/get-kk', [AdminController::class, 'getKK'])->name('get-kk');
+
     Route::get('/get-penduduk', [AdminController::class, 'getPenduduk'])->name('get-penduduk');
     Route::get('/pengantar-ktp', [AdminController::class, 'pengantarKTP'])->name('home.pengantar-ktp');
     Route::get('/pengajuan/{jenis}', [AdminController::class, 'getPengajuan'])->name('pengajuan');

@@ -6,23 +6,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta
-        content="desa penyarang, website desa penyarang, informasi desa penyarang, layanan desa online, pemerintahan desa, berita desa, wisata desa penyarang, layanan masyarakat, agenda desa, potensi ekonomi desa"
-        name="keywords">
-    <meta
-        content="Website resmi Desa Penyarang menghadirkan informasi terkini seputar pemerintahan desa penyarang, layanan masyarakat, agenda desa, serta potensi wisata dan ekonomi lokal. Kunjungi sekarang untuk kemudahan akses layanan desa secara digital!"
-        name="description">
-    <link rel="icon" href="{{ asset('assets/images/logo-desa-penyarang.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('assets/images/logo-desa-penggarutan.jpeg') }}" type="image/png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
         rel="stylesheet">
-    <meta property="og:title" content="Desa Penyarang - Website Resmi" />
-    <meta property="og:description"
-        content="Website resmi Desa Penyarang menghadirkan informasi terkini seputar pemerintahan Desa Penyarang, layanan masyarakat, agenda desa, serta potensi wisata dan ekonomi lokal." />
-    <meta property="og:image" content="{{ asset('assets/landing-page/img/thumbnail.jpeg') }}" />
     <meta property="og:url" content="{{ url('/') }}" />
     <meta property="og:type" content="website" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
@@ -45,7 +35,7 @@
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light bg-white px-4 px-lg-5 py-3 py-lg-0">
             <a href="index.html" class="navbar-brand p-0">
-                <h1 class="text-primary m-0"><img src="{{ asset('assets/images/logo-desa-penyarang.png') }}"
+                <h1 class="text-primary m-0"><img src="{{ asset('assets/images/logo-desa-penggarutan.jpeg') }}"
                         alt="">
                 </h1>
             </a>

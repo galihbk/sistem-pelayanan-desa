@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--favicon-->
-    <link rel="icon" href="{{ asset('assets/images/logo-desa-penyarang.png') }}" type="image/png" />
+    <link rel="icon" href="{{ asset('assets/images/logo-desa-penggarutan.jpeg') }}" type="image/png" />
     <!--plugins-->
     <link href="{{ asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
@@ -45,7 +45,8 @@
         <div class="sidebar-wrapper" data-simplebar="true">
             <div class="sidebar-header">
                 <div>
-                    <img src="{{ asset('assets/images/logo-desa-penyarang.png') }}" class="logo-icon" alt="logo icon">
+                    <img src="{{ asset('assets/images/logo-desa-penggarutan.jpeg') }}" class="logo-icon"
+                        alt="logo icon">
                 </div>
                 <div>
                     <h4 class="logo-text">Admin</h4>
@@ -62,7 +63,6 @@
                         <div class="menu-title">Dashboard</div>
                     </a>
                 </li>
-                <!-- <li class="menu-label">KEPENDUDUKAN</li> -->
                 <li>
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class='bx bx-group'></i>
