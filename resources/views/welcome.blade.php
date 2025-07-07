@@ -8,7 +8,7 @@
     <meta name="keywords"
         content="desa penyarang, website desa penyarang, informasi desa penyarang, layanan desa online, pemerintahan desa, berita desa, wisata desa penyarang, layanan masyarakat, agenda desa, potensi ekonomi desa">
     <meta name="description" content="Website resmi Desa Penyarang menghadirkan informasi terkini...">
-    <link rel="icon" href="{{ asset('assets/images/logo-desa-penyarang.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('assets/images/logo-desa-penggarutan.jpeg') }}" type="image/png">
 
     {{-- Fonts & Icons --}}
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
     <div class="container-fluid position-relative p-0" style="overflow-x: hidden;">
         <nav class="navbar navbar-expand-lg navbar-light bg-white px-4 px-lg-5 py-3 py-lg-0">
             <a href="index.html" class="navbar-brand p-0">
-                <h1 class="text-primary m-0"><img src="{{ asset('assets/images/logo-desa-penyarang.png') }}"
+                <h1 class="text-primary m-0"><img src="{{ asset('assets/images/logo-desa-penggarutan.jpeg') }}"
                         alt="">
                 </h1>
             </a>
@@ -45,15 +45,13 @@
                     <a href="{{ route('home') }}" class="nav-item nav-link active">Beranda</a>
                     <a href="{{ route('home.tentang') }}" class="nav-item nav-link">Tentang</a>
                     {{-- <a href="{{ route('home.sejarah') }}" class="nav-item nav-link">Sejarah</a> --}}
-                    <a href="{{ route('home.layanan') }}" class="nav-item nav-link"
-                        data-bs-toggle="dropdown">Layanan</a>
+                    <a href="{{ route('home.layanan') }}" class="nav-item nav-link">Layanan</a>
                 </div>
             </div>
         </nav>
         <div class="header-carousel owl-carousel">
             <div class="header-carousel-item">
-                <img src="{{ asset('assets/landing-page/img/balai-desa-penyarang.jpeg') }}" class="img-fluid w-100"
-                    alt="Image">
+                <img src="{{ asset('assets/landing-page/img/desa.jpeg') }}" class="img-fluid w-100" alt="Image">
                 <div class="carousel-caption">
                     <div class="carousel-caption-content p-3">
                         <h5 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Selamat Datang
@@ -70,8 +68,8 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-5 wow fadeInLeft" data-wow-delay="0.2s">
                     <div class="about-img pb-5 ps-5">
-                        <img src="{{ asset('assets/landing-page/img/balai-desa-penyarang.jpeg') }}"
-                            class="img-fluid rounded w-100" style="object-fit: cover;" alt="Image">
+                        <img src="{{ asset('assets/landing-page/img/desa.jpeg') }}" class="img-fluid rounded w-100"
+                            style="object-fit: cover;" alt="Image">
                     </div>
                 </div>
                 <div class="col-lg-7 wow fadeInRight" data-wow-delay="0.4s">

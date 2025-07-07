@@ -30,14 +30,13 @@ class HomeController extends Controller
         ]);
     }
 
-    public function sejarah()
+    public function layanan()
     {
-        return view('home.sejarah', [
-            'title' => 'Sejarah Desa Penyarang',
-            'page_of' => 'Sejarah',
+        return view('home.layanan', [
+            'title' => 'Layanan Desa Penyarang',
+            'page_of' => 'Layanan',
         ]);
     }
-
 
     public function pengantarKTP()
     {

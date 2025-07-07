@@ -57,8 +57,7 @@
                     <a href="{{ route('home') }}" class="nav-item nav-link active">Beranda</a>
                     <a href="{{ route('home.tentang') }}" class="nav-item nav-link">Tentang</a>
                     {{-- <a href="{{ route('home.sejarah') }}" class="nav-item nav-link">Sejarah</a> --}}
-                    <a href="{{ route('home.layanan') }}" class="nav-item nav-link"
-                        data-bs-toggle="dropdown">Layanan</a>
+                    <a href="{{ route('home.layanan') }}" class="nav-item nav-link">Layanan</a>
                 </div>
             </div>
         </nav>

@@ -15,8 +15,8 @@
                 <div class="col-lg-5 wow fadeInLeft" data-wow-delay="0.2s"
                     style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
                     <div class="about-img pb-5 ps-5">
-                        <img src="{{ asset('assets/landing-page/img/balai-desa-penyarang.jpeg') }}"
-                            class="img-fluid rounded w-100" style="object-fit: cover;" alt="Image">
+                        <img src="{{ asset('assets/landing-page/img/desa.jpeg') }}" class="img-fluid rounded w-100"
+                            style="object-fit: cover;" alt="Image">
                     </div>
                 </div>
                 <div class="col-lg-7 wow fadeInRight" data-wow-delay="0.4s"
