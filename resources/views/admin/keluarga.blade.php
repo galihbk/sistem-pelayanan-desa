@@ -53,9 +53,9 @@
                                 <tr>
                                     <th class="text-center">No</th>
                                     <th class="text-center">Aksi</th>
-                                    <th>NKK</th>
+                                    <th>Nomor KK</th>
                                     <th>NIK</th>
-                                    <th>Nama</th>
+                                    <th>Nama Kepala Keluarga</th>
                                     <th>Dusun</th>
                                     <th>RT</th>
                                     <th>RW</th>

@@ -77,16 +77,11 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript:;" class="has-arrow">
+                    <a href="{{ route('pengajuan.layanan') }}">
                         <div class="parent-icon"><i class='bx bx-group'></i>
                         </div>
-                        <div class="menu-title">Pengajuan</div>
+                        <div class="menu-title">Layanan</div>
                     </a>
-                    <ul>
-                        <li> <a href="{{ route('home.pengantar-ktp') }}"><i class="bx bx-right-arrow-alt"></i>Surat
-                                Pengantar KTP</a>
-                        </li>
-                    </ul>
                 </li>
             </ul>
         </div>
@@ -97,14 +92,14 @@
                     </div>
                     <div class="top-menu ms-auto">
                         <ul class="navbar-nav align-items-center">
-                            <li class="nav-item dropdown dropdown-large">
+                            <li class="nav-item dropdown dropdown-large" style="display: none">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative"
                                     href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <span class="alert-count">7</span>
                                     <i class="bx bx-bell"></i>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-end">
-                                    <a href="javascript:;">
+                                <div class="dropdown-menu dropdown-menu-end" style="display: none">
+                                    <a href="javascript:;" style="display: none">
                                         <div class="msg-header">
                                             <p class="msg-header-title">Notifications</p>
                                             <p class="msg-header-clear ms-auto">Marks all as read</p>

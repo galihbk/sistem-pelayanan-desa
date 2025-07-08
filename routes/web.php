@@ -26,8 +26,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
     Route::get('/keluarga', [AdminController::class, 'keluarga'])->name('keluarga');
     Route::post('/kk/store', [AdminController::class, 'storeKK'])->name('kk.store');
+    Route::post('/penduduk/store', [AdminController::class, 'storePenduduk'])->name('penduduk.store');
     Route::get('/kk/data', [AdminController::class, 'getDataKK'])->name('kk.data');
+    Route::get('/kk/autocomplete', [AdminController::class, 'autocomplete'])->name('kk.autocomplete');
+    Route::get('/penduduk/data', [AdminController::class, 'getDataPenduduk'])->name('penduduk.data');
     Route::get('/penduduk', [AdminController::class, 'penduduk'])->name('penduduk');
+    Route::get('/pengajuan', [AdminController::class, 'penduduk'])->name('pengajuan.layanan');
 
     Route::get('/get-penduduk', [AdminController::class, 'getPenduduk'])->name('get-penduduk');
     Route::get('/pengantar-ktp', [AdminController::class, 'pengantarKTP'])->name('home.pengantar-ktp');
