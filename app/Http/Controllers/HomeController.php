@@ -47,7 +47,42 @@ class HomeController extends Controller
     public function skdu()
     {
         return view('home.skdu', [
-            'title' => 'Surat Keterangan Domisili Tempat Tinggal',
+            'title' => 'Surat Keterangan Domisili Usaha',
+            'page_of' => 'Layanan',
+        ]);
+    }
+    public function sku()
+    {
+        return view('home.sku', [
+            'title' => 'Surat Keterangan Umum',
+            'page_of' => 'Layanan',
+        ]);
+    }
+    public function skus()
+    {
+        return view('home.skus', [
+            'title' => 'Surat Keterangan Usaha',
+            'page_of' => 'Layanan',
+        ]);
+    }
+    public function skk()
+    {
+        return view('home.skk', [
+            'title' => 'Surat Keterangan Kelahiran',
+            'page_of' => 'Layanan',
+        ]);
+    }
+    public function skke()
+    {
+        return view('home.skke', [
+            'title' => 'Surat Keterangan Kematian',
+            'page_of' => 'Layanan',
+        ]);
+    }
+    public function skck()
+    {
+        return view('home.skck', [
+            'title' => 'Surat Pengantar Catatan Kepolisian',
             'page_of' => 'Layanan',
         ]);
     }

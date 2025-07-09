@@ -18,6 +18,11 @@ Route::get('/sktm', [HomeController::class, 'sktm'])->name('pengajuan.sktm');
 Route::get('/sik', [HomeController::class, 'sik'])->name('pengajuan.sik');
 Route::get('/skdtt', [HomeController::class, 'skdtt'])->name('pengajuan.skdtt');
 Route::get('/skdu', [HomeController::class, 'skdu'])->name('pengajuan.skdu');
+Route::get('/sku', [HomeController::class, 'sku'])->name('pengajuan.sku');
+Route::get('/skus', [HomeController::class, 'skus'])->name('pengajuan.skus');
+Route::get('/skck', [HomeController::class, 'skck'])->name('pengajuan.skck');
+Route::get('/skk', [HomeController::class, 'skk'])->name('pengajuan.skk');
+Route::get('/skke', [HomeController::class, 'skke'])->name('pengajuan.skke');
 
 Route::middleware('guest')->group(function () {
     Route::get('admin-panel', [AuthController::class, 'index'])->name('admin.login');

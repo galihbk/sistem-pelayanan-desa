@@ -52,8 +52,17 @@
                             <a href="{{ route('pengajuan.sktm') }}" class="dropdown-item">Surat Keterangan Tidak
                                 Mampu</a>
                             <a href="{{ route('pengajuan.sik') }}" class="dropdown-item">Surat Ijin Keramaian</a>
+                            <a href="{{ route('pengajuan.skdtt') }}" class="dropdown-item">Surat Keterangan
+                                Domisili</a>
                             <a href="{{ route('pengajuan.skdu') }}" class="dropdown-item">Surat Keterangan
                                 Domisili Usaha</a>
+                            <a href="{{ route('pengajuan.sku') }}" class="dropdown-item">Surat Keterangan Umum</a>
+                            <a href="{{ route('pengajuan.skus') }}" class="dropdown-item">Surat Keterangan Usaha</a>
+                            <a href="{{ route('pengajuan.skck') }}" class="dropdown-item">Surat Pengantar SKCK</a>
+                            <a href="{{ route('pengajuan.skk') }}" class="dropdown-item">Surat Keterangan
+                                Kelahiran</a>
+                            <a href="{{ route('pengajuan.skke') }}" class="dropdown-item">Surat Keterangan
+                                Kematian</a>
                         </div>
                     </div>
                 </div>

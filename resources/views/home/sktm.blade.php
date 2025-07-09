@@ -95,7 +95,7 @@
                 e.preventDefault()
                 var form = $(this).serialize()
                 $.ajax({
-                    url: '{{ route('home.upload-pengajuan', 'ktp') }}',
+                    url: '{{ route('home.upload-pengajuan', 'sktm') }}',
                     type: 'POST',
                     data: form,
                     headers: {

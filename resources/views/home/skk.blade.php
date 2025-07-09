@@ -22,11 +22,9 @@
                     <div class="col-lg-12 col-xl-12 contact-form wow fadeInLeft" data-wow-delay="0.1s">
                         <form id="form-ktp">
                             <div class="row g-3">
-                                <div class="col-lg-12 col-xl-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control bg-transparent border border-white"
-                                            name="nik" id="nik" placeholder="Masukan NIK KTP">
-                                        <label for="name">NIK KTP</label>
+                                <div class="section-title">
+                                    <div class="sub-style">
+                                        <h4 class="sub-title text-white px-3 mb-0">Data Bayi / Anak</h4>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-xl-6">
@@ -40,35 +38,7 @@
                                     <div class="form-floating">
                                         <input type="text" class="form-control bg-transparent border border-white"
                                             id="nama" name="nama" placeholder="Nama">
-                                        <label for="email">Maksud Keramaian</label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-xl-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control bg-transparent border border-white"
-                                            id="nama" name="nama" placeholder="Nama">
-                                        <label for="email">Tanggal Penyelenggaraan</label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-xl-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control bg-transparent border border-white"
-                                            id="nama" name="nama" placeholder="Nama">
-                                        <label for="email">Jenis Hiburan</label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-xl-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control bg-transparent border border-white"
-                                            id="nama" name="nama" placeholder="Nama">
-                                        <label for="email">Jumlah Undangan</label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-xl-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control bg-transparent border border-white"
-                                            id="nama" name="nama" placeholder="Nama">
-                                        <label for="email">Tempat Penyelenggaraan</label>
+                                        <label for="email">Keperluan SKCK</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-xl-6">
@@ -130,7 +100,7 @@
                 e.preventDefault()
                 var form = $(this).serialize()
                 $.ajax({
-                    url: '{{ route('home.upload-pengajuan', 'sik') }}',
+                    url: '{{ route('home.upload-pengajuan', 'skk') }}',
                     type: 'POST',
                     data: form,
                     headers: {

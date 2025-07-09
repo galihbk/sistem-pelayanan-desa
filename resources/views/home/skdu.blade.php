@@ -39,49 +39,49 @@
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control bg-transparent border border-white"
-                                            id="nama" name="nama" placeholder="Nama" readonly>
+                                            id="nama" name="nama" placeholder="Nama">
                                         <label for="email">Nama Perusahaan</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control bg-transparent border border-white"
-                                            id="nama" name="nama" placeholder="Nama" readonly>
+                                            id="nama" name="nama" placeholder="Nama">
                                         <label for="email">Nama Pemilik</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control bg-transparent border border-white"
-                                            id="nama" name="nama" placeholder="Nama" readonly>
+                                            id="nama" name="nama" placeholder="Nama">
                                         <label for="email">Alamat Perusahaan</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control bg-transparent border border-white"
-                                            id="nama" name="nama" placeholder="Nama" readonly>
+                                            id="nama" name="nama" placeholder="Nama">
                                         <label for="email">Status Perusahaan</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control bg-transparent border border-white"
-                                            id="nama" name="nama" placeholder="Nama" readonly>
+                                            id="nama" name="nama" placeholder="Nama">
                                         <label for="email">Jumlah Karyawan</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control bg-transparent border border-white"
-                                            id="nama" name="nama" placeholder="Nama" readonly>
+                                            id="nama" name="nama" placeholder="Nama">
                                         <label for="email">Luas Tempat Usaha</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control bg-transparent border border-white"
-                                            id="nama" name="nama" placeholder="Nama" readonly>
+                                            id="nama" name="nama" placeholder="Nama">
                                         <label for="email">Waktu Usaha</label>
                                     </div>
                                 </div>
