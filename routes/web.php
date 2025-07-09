@@ -14,6 +14,10 @@ Route::get('/pengantar-nikah', [HomeController::class, 'pengantarNikah'])->name(
 Route::post('/cek-nik', [HomeController::class, 'cekNIK'])->name('home.cek-nik');
 Route::post('/upload-pengajuan/{jenis}', [HomeController::class, 'uploadPengajuan'])->name('home.upload-pengajuan');
 Route::get('/layanan', [HomeController::class, 'layanan'])->name('home.layanan');
+Route::get('/sktm', [HomeController::class, 'sktm'])->name('pengajuan.sktm');
+Route::get('/sik', [HomeController::class, 'sik'])->name('pengajuan.sik');
+Route::get('/skdtt', [HomeController::class, 'skdtt'])->name('pengajuan.skdtt');
+Route::get('/skdu', [HomeController::class, 'skdu'])->name('pengajuan.skdu');
 
 Route::middleware('guest')->group(function () {
     Route::get('admin-panel', [AuthController::class, 'index'])->name('admin.login');

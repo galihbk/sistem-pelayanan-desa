@@ -46,9 +46,18 @@
                 <div class="navbar-nav ms-auto py-0">
                     <a href="{{ route('home') }}" class="nav-item nav-link active">Beranda</a>
                     <a href="{{ route('home.tentang') }}" class="nav-item nav-link">Tentang</a>
-                    {{-- <a href="{{ route('home.sejarah') }}" class="nav-item nav-link">Sejarah</a> --}}
-                    <a href="{{ route('home.layanan') }}" class="nav-item nav-link">Layanan</a>
+                    <div class=" nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Layanan</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="{{ route('pengajuan.sktm') }}" class="dropdown-item">Surat Keterangan Tidak
+                                Mampu</a>
+                            <a href="{{ route('pengajuan.sik') }}" class="dropdown-item">Surat Ijin Keramaian</a>
+                            <a href="{{ route('pengajuan.skdu') }}" class="dropdown-item">Surat Keterangan
+                                Domisili Usaha</a>
+                        </div>
+                    </div>
                 </div>
+                <a href="{{ route('admin.login') }}" class="btn btn-primary px-5">Masuk</a>
             </div>
         </nav>
     </div>
@@ -58,11 +67,8 @@
             <div class="row g-4 align-items-center">
                 <div class="col-md-6 text-center text-md-start mb-md-0">
                     <span class="text-white"><a href=""><i
-                                class="fas fa-copyright text-light me-2"></i>penyarang.desa.id</a>, All right
+                                class="fas fa-copyright text-light me-2"></i>penggarutan.desa.id</a>, All right
                         reserved.</span>
-                </div>
-                <div class="col-md-6 text-center text-md-end text-white">
-                    Developed By <a class="border-bottom" href="https://galihbagaskoro.my.id">Galih Bagaskoro</a>
                 </div>
             </div>
         </div>

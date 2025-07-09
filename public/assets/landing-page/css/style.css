@@ -772,8 +772,7 @@
   color: var(--bs-white);
 }
 .testimonial {
-  background: linear-gradient(rgba(21, 185, 217, 0.9), rgba(21, 185, 217, 0.9)),
-    url(../img/carousel-1.jpg);
+  background: linear-gradient(rgba(21, 185, 217, 0.9), rgba(21, 185, 217, 0.9));
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1019,8 +1018,7 @@
   border-bottom-right-radius: 10px;
 }
 .contact {
-  background: linear-gradient(rgba(21, 185, 217, 0.9), rgba(21, 185, 217, 0.9)),
-    url(../img/carousel-1.jpg);
+  background: linear-gradient(rgba(21, 185, 217, 0.9), rgba(21, 185, 217, 0.9));
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

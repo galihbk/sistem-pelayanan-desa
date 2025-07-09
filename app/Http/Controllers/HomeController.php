@@ -30,10 +30,31 @@ class HomeController extends Controller
         ]);
     }
 
-    public function layanan()
+    public function sktm()
     {
-        return view('home.layanan', [
-            'title' => 'Layanan Desa Penyarang',
+        return view('home.sktm', [
+            'title' => 'Surat Keterangan Tidak Mampu',
+            'page_of' => 'Layanan',
+        ]);
+    }
+    public function skdtt()
+    {
+        return view('home.skdtt', [
+            'title' => 'Surat Keterangan Domisili Tempat Tinggal',
+            'page_of' => 'Layanan',
+        ]);
+    }
+    public function skdu()
+    {
+        return view('home.skdu', [
+            'title' => 'Surat Keterangan Domisili Tempat Tinggal',
+            'page_of' => 'Layanan',
+        ]);
+    }
+    public function sik()
+    {
+        return view('home.sik', [
+            'title' => 'Surat Ijin Keramaian',
             'page_of' => 'Layanan',
         ]);
     }
@@ -50,11 +71,11 @@ class HomeController extends Controller
     {
         $nik = $request->post('nik');
         $penduduk = DB::table('anggota_keluarga')->where('nik', $nik)->first();
-
+        // dd($penduduk->tanggal_lahir);
         if ($penduduk) {
-            $tgl_lahir = Carbon::parse($penduduk->tanggal_lahir);
-            $umur = Carbon::now()->diffInYears($tgl_lahir);
-
+            $tgl_lahir = Carbon::parse($penduduk->tanggal_lahir)->timezone('Asia/Jakarta');
+            $umur = $tgl_lahir->diffInYears(Carbon::now('Asia/Jakarta'));
+            // dd($tgl_lahir);
             if ($umur >= 17) {
                 return response()->json(['status' => 'success', 'nama' => $penduduk->nama_lengkap]);
             } else {
