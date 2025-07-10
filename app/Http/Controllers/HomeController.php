@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PengajuanSktm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -123,24 +124,23 @@ class HomeController extends Controller
 
     public function uploadPengajuan(Request $request, $jenis = '')
     {
-        $nik = $request->post('nik');
-        $existing = DB::table('pengajuan_layanan')->where(['nik' => $nik, 'jenis_pengajuan' => $jenis])->first();
+        if ($jenis == 'sktm') {
+            $nik = $request->post('nik');
+            $existing = PengajuanSktm::where(['nik' => $nik, 'status' => 0])->first();
 
-        if (!$existing) {
-            $insert = DB::table('pengajuan_layanan')->insert([
-                'jenis_pengajuan' => $jenis,
-                'nik' => $nik,
-                'nomor_wa' => $request->post('nomor'),
-                'email' => $request->post('email'),
-            ]);
-
-            if ($insert) {
-                return response()->json(['status' => 'success', 'message' => 'Pengajuan berhasil disimpan, tunggu konfirmasi selanjutnya melalui pesan WA atau email']);
-            } else {
-                return response()->json(['status' => 'failed', 'message' => 'Pengajuan gagal disimpan, silahkan ulangi lagi']);
+            if (!$existing) {
+                $insert = PengajuanSktm::create([
+                    'nik' => $nik,
+                    'wa' => $request->post('nomor'),
+                    'email' => $request->post('email'),
+                ]);
+                if ($insert) {
+                    return response()->json(['status' => 'success', 'message' => 'Pengajuan berhasil disimpan, tunggu konfirmasi selanjutnya melalui pesan WA atau email']);
+                } else {
+                    return response()->json(['status' => 'failed', 'message' => 'Pengajuan gagal disimpan, silahkan ulangi lagi']);
+                }
             }
+            return response()->json(['status' => 'failed', 'message' => 'Anda sudah melakukan pengajuan sebelumnya']);
         }
-
-        return response()->json(['status' => 'failed', 'message' => 'Anda sudah melakukan pengajuan sebelumnya']);
     }
 }
