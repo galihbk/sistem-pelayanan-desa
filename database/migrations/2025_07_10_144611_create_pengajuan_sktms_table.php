@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('pengajuan_sktms', function (Blueprint $table) {
             $table->id();
             $table->string('nik');
-            $table->string('email');
             $table->string('wa');
             $table->integer('status')->default(0);
             $table->timestamps();
