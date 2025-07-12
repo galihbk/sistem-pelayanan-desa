@@ -132,7 +132,6 @@ class HomeController extends Controller
                 $insert = PengajuanSktm::create([
                     'nik' => $nik,
                     'wa' => $request->post('nomor'),
-                    'email' => $request->post('email'),
                 ]);
                 if ($insert) {
                     return response()->json(['status' => 'success', 'message' => 'Pengajuan berhasil disimpan, tunggu konfirmasi selanjutnya melalui pesan WA atau email']);
@@ -141,6 +140,13 @@ class HomeController extends Controller
                 }
             }
             return response()->json(['status' => 'failed', 'message' => 'Anda sudah melakukan pengajuan sebelumnya']);
-        }
+        }else if($jenis == 'sik'){
+        }else if($jenis == 'skck'){
+        }else if($jenis == 'skke'){
+        }else if($jenis == 'skk'){
+        }else if($jenis == 'skdu'){
+        }else if($jenis == 'skdtt'){
+        }else if($jenis == 'skus')}
+            }
     }
 }
