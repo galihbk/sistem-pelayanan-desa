@@ -2,7 +2,24 @@
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>
+    #######################################
+    ## 🚀 LSCache Setup (Tambahan)
+    # <IfModule LiteSpeed>
+    #     CacheEnable public /
+    #     CacheDisable /login
+    #     CacheDisable /register
+    #     CacheDisable /admin
+    #     CacheDisable /api
 
+    #     RewriteEngine On
+
+    #     # Tag untuk cache (optional)
+    #     RewriteRule .* - [E=Cache-Control:max-age=3600]
+
+    #     # Tambahan header LSCache (optional untuk tag manual)
+    #     Header set X-LiteSpeed-Tag "laravel_page"
+    # </IfModule>
+    #######################################
     RewriteEngine On
 
     # Handle Authorization Header

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PengajuanSktm;
+use App\Models\PengajuanLayanan;
+use App\Models\PengajuanLayananDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 
 class HomeController extends Controller
@@ -124,29 +124,100 @@ class HomeController extends Controller
 
     public function uploadPengajuan(Request $request, $jenis = '')
     {
+        $messages = [
+            'nik.required' => 'NIK tidak boleh Kosong.',
+            'nama.required' => 'Nama tidak boleh Kosong.',
+            'nomor.required' => 'Nomor tidak boleh Kosong.',
+            // SIK
+            'maksud_keramaian.required' => 'Maksud Keramaian tidak boleh Kosong.',
+            'tanggal_penyelenggaraan.required' => 'Tanggal Penyelenggaraan tidak boleh Kosong.',
+            'jenis_hiburan.required' => 'Jenis Hiburan tidak boleh Kosong.',
+            'jumlah_undangan.required' => 'Jumlah Undangan tidak boleh Kosong.',
+            'tempat_penyelenggaraan.required' => 'Tempat Penyelenggaraan tidak boleh Kosong.',
+            // SIK
+            // SKDU
+            'nama_perusahaan.required' => 'Nama Perusahaan tidak boleh Kosong.',
+            'nama_pemilik.required' => 'Nama Pemilik Perusahaan tidak boleh Kosong.',
+            'alamat_perusahaan.required' => 'Alamat Perusahaan tidak boleh Kosong.',
+            'status_perusahaan.required' => 'Status Perusahaan tidak boleh Kosong.',
+            'jumlah_karyawan.required' => 'Jumlah Karyawan tidak boleh Kosong.',
+            'luas_tempat_usaha.required' => 'Luas Tempat Usaha tidak boleh Kosong.',
+            'waktu_usaha.required' => 'Waktu Usaha tidak boleh Kosong.',
+            // SKDU
+            // SKU
+            'keperluan.required' => 'Keperluan tidak boleh Kosong.',
+            'keterangan_lain.required' => 'Keterangan Lain tidak boleh Kosong.',
+            // SKU
+            // SKUS
+            'jenis_usaha.required' => 'Jenis Usaha tidak boleh Kosong.',
+            'keperluan_surat.required' => 'Keperluan Surat tidak boleh Kosong.',
+            // SKUS
+            // SKUS
+            'keperluan_skck.required' => 'Keperluan SKCK tidak boleh Kosong.'
+            // SKUS
+        ];
+        $rules = [
+            'nik' => 'required|string|max:255',
+            'nama' => 'required|string|max:255',
+            'nomor' => 'required|string|max:255',
+        ];
         if ($jenis == 'sktm') {
-            $nik = $request->post('nik');
-            $existing = PengajuanSktm::where(['nik' => $nik, 'status' => 0])->first();
-
-            if (!$existing) {
-                $insert = PengajuanSktm::create([
-                    'nik' => $nik,
-                    'wa' => $request->post('nomor'),
-                ]);
-                if ($insert) {
-                    return response()->json(['status' => 'success', 'message' => 'Pengajuan berhasil disimpan, tunggu konfirmasi selanjutnya melalui pesan WA atau email']);
-                } else {
-                    return response()->json(['status' => 'failed', 'message' => 'Pengajuan gagal disimpan, silahkan ulangi lagi']);
+        } else if ($jenis == 'sik') {
+            $rules['maksud_keramaian'] = 'required|string|max:255';
+            $rules['tanggal_penyelenggaraan'] = 'required';
+            $rules['jenis_hiburan'] = 'required|string|max:255';
+            $rules['jumlah_undangan'] = 'required|string|max:255';
+            $rules['tempat_penyelenggaraan'] = 'required|string|max:255';
+        } else if ($jenis == 'sku') {
+            $rules['keperluan'] = 'required|string|max:255';
+        }else if ($jenis == 'skck') {
+            $rules['keperluan_skck'] = 'required|string|max:255';
+        } else if ($jenis == 'skke') {
+        } else if ($jenis == 'skk') {
+        } else if ($jenis == 'skdu') {
+            $rules['nama_perusahaan'] = 'required|string|max:255';
+            $rules['nama_pemilik'] = 'required|string|max:255';
+            $rules['alamat_perusahaan'] = 'required|string|max:255';
+            $rules['status_perusahaan'] = 'required|string|max:255';
+            $rules['jumlah_karyawan'] = 'required|string|max:255';
+            $rules['luas_tempat_usaha'] = 'required|string|max:255';
+            $rules['waktu_usaha'] = 'required|string|max:255';
+        } else if ($jenis == 'skdtt') {
+        } else if ($jenis == 'skus') {
+            $rules['jenis_usaha'] = 'required|string|max:255';
+            $rules['keperluan_surat'] = 'required|string|max:255';
+        } else {
+            return response()->json(['status' => 'failed', 'message' => 'Jenis Pengajuan Tidak Tersedia']);
+        }
+        $validated = $request->validate($rules, $messages);
+        $penduduk = DB::table('anggota_keluarga')->where('nik', $validated)->first();
+        if(!$penduduk){
+            return response()->json(['errors' => [
+                'nik' => 'NIK tidak ditemukan'
+            ], 'message' => 'NIK tidak ditemukan'])->setStatusCode(422);
+        }
+        $existing = PengajuanLayanan::where(['nik' => $validated['nik'], 'status' => 'pending','jenis_pengajuan' => $jenis])->first();
+        if (!$existing) {
+            $pengajuan = PengajuanLayanan::create([
+                'jenis_pengajuan' => $jenis,
+                'nik' => $validated['nik'],
+                'nomor_wa' => $request->post('nomor'),
+            ]);
+            if ($pengajuan) {
+                foreach($validated as $key => $val){
+                    if(!in_array($key,['nik','nomor','nama'])){
+                        PengajuanLayananDetail::create([
+                            'pengajuan_id' => $pengajuan->id,
+                            'nama' => $key,
+                            'isi' => $val
+                        ]);
+                    }
                 }
+                return response()->json(['status' => 'success', 'message' => 'Pengajuan berhasil disimpan, tunggu konfirmasi selanjutnya melalui pesan WA atau email']);
+            } else {
+                return response()->json(['status' => 'failed', 'message' => 'Pengajuan gagal disimpan, silahkan ulangi lagi']);
             }
-            return response()->json(['status' => 'failed', 'message' => 'Anda sudah melakukan pengajuan sebelumnya']);
-        }else if($jenis == 'sik'){
-        }else if($jenis == 'skck'){
-        }else if($jenis == 'skke'){
-        }else if($jenis == 'skk'){
-        }else if($jenis == 'skdu'){
-        }else if($jenis == 'skdtt'){
-        }else if($jenis == 'skus')}
-            }
+        }
+        return response()->json(['status' => 'failed', 'message' => 'Anda sudah melakukan pengajuan sebelumnya']);
     }
 }

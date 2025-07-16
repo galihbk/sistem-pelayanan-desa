@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('jenis_pengajuan');
             $table->string('nik');
             $table->string('nomor_wa');
-            $table->string('email');
+            $table->string('email')->nullable();
+            $table->text('keterangan')->nullable();
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
             $table->timestamps();
         });

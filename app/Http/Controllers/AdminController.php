@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 use App\Models\AnggotaKeluarga;
+use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
@@ -25,14 +26,21 @@ class AdminController extends Controller
         $penduduk = DB::table('anggota_keluarga')->count();
         return view('admin.penduduk', ['title' => 'Data Penduduk', 'penduduk' => $penduduk]);
     }
-
+    function detailKK($id) {
+        $kk = DB::table('kartu_keluarga')->find($id);
+        return response()->json($kk);
+    }
+    function detailPenduduk($id) {
+        $penduduk = DB::table('anggota_keluarga')->find($id);
+        return response()->json($penduduk);
+    }
     public function storeKK(Request $request)
     {
         $request->validate([
             'nkk' => 'required|numeric|unique:kartu_keluarga,nomor_kk',
             'dusun' => 'required|string',
             'rt' => 'required|string',
-            'rw' => 'required|string',
+            'rw' => 'required|string'
         ]);
         DB::table('kartu_keluarga')->insert([
             'nomor_kk' => $request->nkk,
@@ -44,6 +52,32 @@ class AdminController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Data Kartu Keluarga berhasil ditambahkan.');
+    }
+    public function editKK(Request $request,$id)
+    {
+        $kk = DB::table('kartu_keluarga')->find($id);
+        $request->validate([
+            'nkk_edit' => ["required","numeric",Rule::unique('kartu_keluarga', 'nomor_kk')->ignore($id)],
+            'dusun_edit' => 'required|string',
+            'rt_edit' => 'required|string',
+            'rw_edit' => 'required|string',
+        ]);
+        DB::table('kartu_keluarga')->where(['id' => $id])->update([
+            'nomor_kk' => $request->nkk_edit,
+            'dusun' => $request->dusun_edit,
+            'rt' => $request->rt_edit,
+            'rw' => $request->rw_edit,
+            'updated_at' => now(),
+        ]);
+
+        return redirect()->back()->with('success', 'Data Kartu Keluarga berhasil diubah.');
+    }
+    public function deleteKK(Request $request,$id)
+    {
+        $kk = DB::table('kartu_keluarga')->find($id);
+        DB::table('kartu_keluarga')->delete($id);
+
+        return redirect()->back()->with('success', 'Data Kartu Keluarga berhasil dihapus.');
     }
     public function storePenduduk(Request $request)
     {
@@ -80,6 +114,50 @@ class AdminController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage());
         }
+    }
+    public function editPenduduk(Request $request,$id)
+    {
+        $penduduk = DB::table('anggota_keluarga')->find($id);
+        // Validasi input
+        $request->validate([
+            'nik_edit' => ["required",'max:20',Rule::unique('anggota_keluarga', 'nik')->ignore($id)],
+            'nama_lengkap_edit' => 'required|string|max:255',
+            'jenis_kelamin_edit' => 'required|in:L,P',
+            'nomor_kk_edit' => 'required|exists:kartu_keluarga,nomor_kk',
+            'tanggal_lahir_edit' => 'nullable|date',
+            // Tambahan validasi lainnya sesuai kebutuhan
+        ]);
+
+        try {
+            // Simpan data anggota keluarga
+            AnggotaKeluarga::where(['id' => $id])->update([
+                'nomor_kk' => $request->nomor_kk_edit,
+                'nik' => $request->nik_edit,
+                'nama_lengkap' => $request->nama_lengkap_edit,
+                'tempat_lahir' => $request->tempat_lahir_edit,
+                'tanggal_lahir' => $request->tanggal_lahir_edit,
+                'jenis_kelamin' => $request->jenis_kelamin_edit,
+                'agama' => $request->agama_edit,
+                'pendidikan' => $request->pendidikan_edit,
+                'pekerjaan' => $request->pekerjaan_edit,
+                'status_perkawinan' => $request->status_perkawinan_edit,
+                'hubungan_dalam_keluarga' => $request->hubungan_dalam_keluarga_edit,
+                'kewarganegaraan' => $request->kewarganegaraan_edit,
+                'nama_ayah' => $request->nama_ayah_edit,
+                'nama_ibu' => $request->nama_ibu_edit,
+            ]);
+
+            return redirect()->back()->with('success', 'Anggota keluarga berhasil disimpan.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage());
+        }
+    }
+    public function deletePenduduk(Request $request,$id)
+    {
+        $penduduk = DB::table('anggota_keluarga')->find($id);
+        DB::table('anggota_keluarga')->delete($id);
+
+        return redirect()->back()->with('success', 'Data Penduduk berhasil dihapus.');
     }
     public function autocomplete(Request $request)
     {
@@ -123,8 +201,8 @@ class AdminController extends Controller
                 return $row->nama_kepala ?? '-';
             })
             ->addColumn('aksi', function ($row) {
-                return '<a href="#" class="btn btn-sm btn-warning">Edit</a>
-                <a href="#" class="btn btn-sm btn-danger">Hapus</a>';
+                return '<a href="#" class="btn btn-sm btn-warning editData" data-id="'.$row->id.'"><span class="bx bx-edit"></span></a>
+                <a href="#" class="btn btn-sm btn-danger deleteData" data-id="'.$row->id.'"><span class="bx bx-trash"></span></a>';
             })
             ->rawColumns(['aksi'])
             ->make(true);
@@ -149,11 +227,28 @@ class AdminController extends Controller
                     return $row->nama_lengkap ?? '-';
                 })
                 ->addColumn('aksi', function ($row) {
-                    return '<a href="#" class="btn btn-sm btn-warning">Edit</a>';
+                    return '<a href="#" class="btn btn-sm btn-warning editData" data-id="'.$row->id.'"><span class="bx bx-edit"></span></a>
+                <a href="#" class="btn btn-sm btn-danger deleteData" data-id="'.$row->id.'"><span class="bx bx-trash"></span></a>';
                 })
                 ->rawColumns(['aksi'])
                 ->make(true);
         }
+    }
+
+    public function penduduk_autocomplete(Request $request)
+    {
+        $search = $request->get('query');
+
+        $data = DB::table('anggota_keluarga')
+            ->where('nik', 'LIKE', "%{$search}%")
+            ->limit(10)->get();
+
+        $output = '';
+        foreach ($data as $p) {
+            $output .= '<a href="#" class="list-group-item list-group-item-action kk-item">' . $p->nik . ' - '.$p->nama_lengkap.'</a>';
+        }
+
+        return response($output);
     }
 
     public function pengantarKTP()

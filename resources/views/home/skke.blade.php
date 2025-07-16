@@ -41,13 +41,13 @@
                                         <label for="email">Keperluan SKCK</label>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-xl-6">
+                                {{-- <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
                                         <input type="email" class="form-control bg-transparent border border-white"
                                             id="phone" name="email" placeholder="Email Aktif">
                                         <label for="phone">Email</label>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control bg-transparent border border-white"

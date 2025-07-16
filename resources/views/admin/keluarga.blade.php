@@ -101,6 +101,65 @@
             </form>
         </div>
     </div>
+    <div class="modal fade" id="modalEditManualKK" tabindex="-1" aria-labelledby="modalEditManualKKLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <form action="{{ route('kk.store') }}" id="formEditKK" method="POST">
+                @csrf
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEditManualKKLabel">Edit Kartu Keluarga</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="nkk_edit" class="form-label">Nomor Kartu Keluarga (NKK)</label>
+                            <input type="text" name="nkk_edit" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dusun_edit" class="form-label">Dusun</label>
+                            <input type="text" name="dusun_edit" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="rt_edit" class="form-label">RT</label>
+                            <input type="text" name="rt_edit" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="rw_edit" class="form-label">RW</label>
+                            <input type="text" name="rw_edit" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Simpan</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal fade" id="modalDeleteManualKK" tabindex="-1" aria-labelledby="modalDeleteManualKKLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <form action="{{ route('kk.store') }}" id="formDeleteKK" method="POST">
+                @csrf
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Hapus Kartu Keluarga</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="nkk_delete" class="form-label">Nomor Kartu Keluarga (NKK)</label>
+                            <input type="text" name="nkk_delete" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-danger">Ya, Hapus</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection
 @section('script')
     <script>
@@ -127,11 +186,11 @@
                     },
                     {
                         data: 'nik_kepala',
-                        name: 'nik_kepala'
+                        name: 'ak.nik'
                     },
                     {
                         data: 'nama_kepala',
-                        name: 'nama_kepala'
+                        name: 'ak.nama_lengkap'
                     },
                     {
                         data: 'dusun',
@@ -147,6 +206,51 @@
                     }
                 ]
             });
+            $('#datatable-kk').on('click', '.editData', function() {
+                var id = $(this).data('id')
+                var formData = new FormData()
+                formData.append('_token','{{csrf_token()}}')
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('kk.detail','__id')}}".replace('__id',id),
+                    data: formData,
+                    cache : false,
+                    processData: false,
+                    contentType: false,
+                    success: function(res){
+                        $('#formEditKK').prop('action',"{{route('kk.edit','__id')}}".replace('__id',id))
+                        $('#formEditKK').find('[name=nkk_edit]').val(res.nomor_kk)
+                        $('#formEditKK').find('[name=dusun_edit]').val(res.dusun)
+                        $('#formEditKK').find('[name=rt_edit]').val(res.rt)
+                        $('#formEditKK').find('[name=rw_edit]').val(res.rw)
+                        $('#modalEditManualKK').modal('show')
+                    }
+                });
+            })
+            $('#datatable-kk').on('click', '.deleteData', function() {
+                var id = $(this).data('id')
+                var formData = new FormData()
+                formData.append('_token','{{csrf_token()}}')
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('kk.detail','__id')}}".replace('__id',id),
+                    data: formData,
+                    cache : false,
+                    processData: false,
+                    contentType: false,
+                    success: function(res){
+                        $('#formDeleteKK').prop('action',"{{route('kk.delete','__id')}}".replace('__id',id))
+                        $('#formDeleteKK').find('[name=nkk_delete]').val(res.nomor_kk)
+                        $('#modalDeleteManualKK').modal('show')
+                    }
+                });
+            })
+            $('#modalEditManualKK').on('hidden.bs.modal',function(){
+                $('#formEditKK').prop('action',"{{route('kk.edit','__id')}}")
+            })
+            $('#modalDeleteManualKK').on('hidden.bs.modal',function(){
+                $('#formDeleteKK').prop('action',"{{route('kk.delete','__id')}}")
+            })
         });
     </script>
 @endsection

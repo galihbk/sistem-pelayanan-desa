@@ -16,7 +16,7 @@
                             </div>
 
                             <div class="ms-auto">
-                                <a href="{{ route('export_excell/kk') }}" target="_blank" class="btn btn-sm btn-info"><i
+                                <a href="{{ route('export_excell/penduduk') }}" target="_blank" class="btn btn-sm btn-info"><i
                                         class="fas fa-file-csv"></i> Export Excell</a>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                         </div>
                         <div class="col-md-6">
                             <label>Tanggal Lahir</label>
-                            <input type="date" name="tanggal_lahir" class="form-control">
+                            <input type="date" name="tanggal_lahir" class="form-control" onclick="this.showPicker()">
                         </div>
                         <div class="col-md-6">
                             <label>Jenis Kelamin</label>
@@ -167,7 +167,129 @@
             </form>
         </div>
     </div>
-
+    <div class="modal fade" id="modalEditAnggota" tabindex="-1" aria-labelledby="modalEditAnggotaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <form id="form-edit-anggota" action="{{ route('penduduk.store') }}" method="POST">
+                @csrf
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEditAnggotaLabel">Edit Anggota Keluarga</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                    </div>
+                    <div class="modal-body row g-3">
+                        <div class="col-md-6">
+                            <label>NIK</label>
+                            <input type="text" name="nik_edit" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Nama Lengkap</label>
+                            <input type="text" name="nama_lengkap_edit" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Tempat Lahir</label>
+                            <input type="text" name="tempat_lahir_edit" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Tanggal Lahir</label>
+                            <input type="date" name="tanggal_lahir_edit" class="form-control" onclick="this.showPicker()">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Jenis Kelamin</label>
+                            <select name="jenis_kelamin_edit" class="form-control" required>
+                                <option value="L">Laki-laki</option>
+                                <option value="P">Perempuan</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Agama</label>
+                            <select name="agama_edit" class="form-control" required>
+                                <option value="Islam">Islam</option>
+                                <option value="Katholik">Katholik</option>
+                                <option value="Kristen">Kristen</option>
+                                <option value="Hindu">Hindu</option>
+                                <option value="Budha">Budha</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Pendidikan</label>
+                            <input type="text" name="pendidikan_edit" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Pekerjaan</label>
+                            <input type="text" name="pekerjaan_edit" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Status Perkawinan</label>
+                            <select name="status_perkawinan_edit" class="form-control" required>
+                                <option value="Kawin">Kawin</option>
+                                <option value="Belum Kawin">Belum Kawin</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Hubungan dalam Keluarga</label>
+                            <select name="hubungan_dalam_keluarga_edit" class="form-control" required>
+                                <option value="Kepala Keluarga">Kepala Keluarga</option>
+                                <option value="Istri">Istri</option>
+                                <option value="Anak">Anak</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Kewarganegaraan</label>
+                            <select name="kewarganegaraan_edit" class="form-control" required>
+                                <option value="WNI">WNI</option>
+                                <option value="WNA">WNA</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Nama Ayah</label>
+                            <input type="text" name="nama_ayah_edit" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Nama Ibu</label>
+                            <input type="text" name="nama_ibu_edit" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Nomor KK</label>
+                            <input type="text" name="nomor_kk_edit" id="nomor_kk" class="form-control" required
+                                autocomplete="off">
+                            <div class="list-group" id="kk-list_edit" style="position:absolute; z-index:999;"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Simpan</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal fade" id="modalDeletePenduduk" tabindex="-1" aria-labelledby="modalDeletePendudukLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <form action="{{ route('penduduk.store') }}" id="formDeletePenduduk" method="POST">
+                @csrf
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Hapus Penduduk</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="nik_delete" class="form-label">NIK</label>
+                            <input type="text" name="nik_delete" class="form-control" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="nama_delete" class="form-label">Nama Lengkap</label>
+                            <input type="text" name="nama_delete" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-danger">Ya, Hapus</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection
 @section('script')
     <script>
@@ -191,10 +313,30 @@
                     $('#kk-list').fadeOut();
                 }
             });
+            $('#nomor_kk_edit').keyup(function() {
+                let query = $(this).val();
+                if (query.length > 2) {
+                    $.ajax({
+                        url: "{{ route('kk.autocomplete') }}",
+                        method: "GET",
+                        data: {
+                            query: query
+                        },
+                        success: function(data) {
+                            $('#kk-list_edit').fadeIn();
+                            $('#kk-list_edit').html(data);
+                        }
+                    });
+                } else {
+                    $('#kk-list_edit').fadeOut();
+                }
+            });
 
             $(document).on('click', '.kk-item', function() {
                 $('#nomor_kk').val($(this).text());
                 $('#kk-list').fadeOut();
+                $('#nomor_kk_edit').val($(this).text());
+                $('#kk-list_edit').fadeOut();
             });
             $('#tabel-anggota').DataTable({
                 processing: true,
@@ -251,6 +393,60 @@
 
                 ]
             });
+            $('#tabel-anggota').on('click', '.editData', function() {
+                var id = $(this).data('id')
+                var formData = new FormData()
+                formData.append('_token','{{csrf_token()}}')
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('penduduk.detail','__id')}}".replace('__id',id),
+                    data: formData,
+                    cache : false,
+                    processData: false,
+                    contentType: false,
+                    success: function(res){
+                        console.log(res)
+                        $('#form-edit-anggota').prop('action',"{{route('penduduk.edit','__id')}}".replace('__id',id))
+                        $('#form-edit-anggota').find('[name=nik_edit]').val(res.nik)
+                        $('#form-edit-anggota').find('[name=nama_lengkap_edit]').val(res.nama_lengkap)
+                        $('#form-edit-anggota').find('[name=tanggal_lahir_edit]').val(res.tanggal_lahir)
+                        $('#form-edit-anggota').find('[name=tempat_lahir_edit]').val(res.tempat_lahir)
+                        $('#form-edit-anggota').find('[name=jenis_kelamin_edit]').val(res.jenis_kelamin)
+                        $('#form-edit-anggota').find('[name=agama_edit]').val(res.agama)
+                        $('#form-edit-anggota').find('[name=pendidikan_edit]').val(res.pendidikan)
+                        $('#form-edit-anggota').find('[name=pekerjaan_edit]').val(res.pekerjaan)
+                        $('#form-edit-anggota').find('[name=status_perkawinan_edit]').val(res.status_perkawinan)
+                        $('#form-edit-anggota').find('[name=hubungan_dalam_keluarga_edit]').val(res.hubungan_dalam_keluarga)
+                        $('#form-edit-anggota').find('[name=kewarganegaraan_edit]').val(res.kewarganegaraan)
+                        $('#form-edit-anggota').find('[name=nama_ayah_edit]').val(res.nama_ayah)
+                        $('#form-edit-anggota').find('[name=nama_ibu_edit]').val(res.nama_ibu)
+                        $('#form-edit-anggota').find('[name=nomor_kk_edit]').val(res.nomor_kk)
+                        $('#modalEditAnggota').modal('show')
+                    }
+                });
+            })
+            $('#modalEditAnggota').on('hidden.bs.modal',function(){
+                $('#form-edit-anggota').prop('action',"{{route('penduduk.edit','__id')}}")
+            })
+            $('#tabel-anggota').on('click', '.deleteData', function() {
+                var id = $(this).data('id')
+                var formData = new FormData()
+                formData.append('_token','{{csrf_token()}}')
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('penduduk.detail','__id')}}".replace('__id',id),
+                    data: formData,
+                    cache : false,
+                    processData: false,
+                    contentType: false,
+                    success: function(res){
+                        $('#formDeletePenduduk').prop('action',"{{route('penduduk.delete','__id')}}".replace('__id',id))
+                        $('#formDeletePenduduk').find('[name=nik_delete]').val(res.nik)
+                        $('#formDeletePenduduk').find('[name=nama_delete]').val(res.nama_lengkap)
+                        $('#modalDeletePenduduk').modal('show')
+                    }
+                });
+            })
         });
     </script>
 @endsection

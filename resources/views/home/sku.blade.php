@@ -26,47 +26,47 @@
                                     <div class="form-floating">
                                         <input type="text" class="form-control bg-transparent border border-white"
                                             name="nik" id="nik" placeholder="Masukan NIK KTP">
-                                        <label for="name">NIK KTP</label>
+                                        <label for="nik">NIK KTP</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control bg-transparent border border-white"
                                             id="nama" name="nama" placeholder="Nama" readonly>
-                                        <label for="email">Nama</label>
+                                        <label for="nama">Nama</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control bg-transparent border border-white"
-                                            id="nama" name="nama" placeholder="Nama">
-                                        <label for="email">Keperluan</label>
+                                            id="keperluan" name="keperluan" placeholder="Keperluan">
+                                        <label for="keperluan">Keperluan</label>
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-xl-6">
-                                    <div class="form-floating">
-                                        <textarea type="text" class="form-control bg-transparent border border-white" id="nama" name="nama"
-                                            placeholder="Nama"></textarea>
-                                        <label for="email">Keterangan Lain</label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-xl-6">
+                                {{-- <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
                                         <input type="email" class="form-control bg-transparent border border-white"
                                             id="phone" name="email" placeholder="Email Aktif">
                                         <label for="phone">Email</label>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-lg-12 col-xl-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control bg-transparent border border-white"
-                                            id="project" name="nomor" placeholder="Masukan Nomor WA Aktif">
-                                        <label for="project">Nomor WA</label>
+                                            id="nomor" name="nomor" placeholder="Masukan Nomor WA Aktif">
+                                        <label for="nomor">Nomor WA</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-xl-6">
+                                    <div class="form-floating">
+                                        <textarea type="text" class="form-control bg-transparent border border-white" id="keterangan_lain" name="keterangan_lain"
+                                            placeholder="Keterangan Lain" rows="3" style="height: 100%"></textarea>
+                                        <label for="keterangan_lain">Keterangan Lain</label>
                                     </div>
                                 </div>
                                 <p class="text-white my-0 py-0" style="font-size: 12px;">*Jika NIK terdaftar di sistem desa
                                     maka data akan otomatis terisi.</p>
-                                <p class="text-white my-0 py-0" style="font-size: 12px;">*Nomor WA dan email untuk
+                                <p class="text-white my-0 py-0" style="font-size: 12px;">*Nomor WA untuk
                                     konfirmasi pengajuan surat.</p>
                                 <div class="col-12">
                                     <button class="btn btn-light text-primary w-100 py-3">Ajukan</button>
@@ -108,6 +108,7 @@
             $('#form-ktp').submit(function(e) {
                 e.preventDefault()
                 var form = $(this).serialize()
+                var formArray = $(this).serializeArray();
                 $.ajax({
                     url: '{{ route('home.upload-pengajuan', 'sku') }}',
                     type: 'POST',
@@ -115,18 +116,36 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
+                    beforeSend: function(xhr){
+                        formArray.map((el) => {
+                            $('[name='+el.name+']').removeClass('is-invalid')
+                            $('[name='+el.name+']').parent().find('.invalid-feedback').remove()
+                        })
+                    },
                     success: function(data) {
                         if (data.status == 'success') {
                             alert(data.message)
                             location.reload();
                         } else {
                             alert(data.message)
-                            location.reload();
+                            // location.reload();
 
                         }
                     },
-                    error: function() {
-                        alert('Terjadi kesalahan. Silakan coba lagi.');
+                    error: function(res) {
+                        if(res.status == 422){
+                            alert('Formulir Gagal diproses, Silahkan Cek Formulir Anda.');
+                            if('responseJSON' in res){
+                                var json = res.responseJSON
+                                var keys = Object.keys(json.errors)
+                                keys.map((key) => {
+                                    $('[name='+key+']').addClass('is-invalid')
+                                    $('[name='+key+']').parent().append('<div class="invalid-feedback">'+json.errors[key]+'</div>')
+                                })
+                            }
+                        }else{
+                            alert('Terjadi kesalahan. Silakan coba lagi.');
+                        }
                     }
                 })
             })
